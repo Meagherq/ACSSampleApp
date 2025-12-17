@@ -47,15 +47,19 @@ jobs:
           terraform_version: ${{ env.TF_VERSION }}
 
       - name: Setup Backend Config
+        env:
+          STORAGE_ACCOUNT: ${{ secrets.TF_STATE_STORAGE_ACCOUNT }}
+          RESOURCE_GROUP: ${{ secrets.TF_STATE_RESOURCE_GROUP }}
+          ACCESS_KEY: ${{ secrets.TF_STATE_ACCESS_KEY }}
         run: |
           cat > backend.tf <<EOF
           terraform {
             backend "azurerm" {
-              storage_account_name = "${{ secrets.TF_STATE_STORAGE_ACCOUNT }}"
+              storage_account_name = "${STORAGE_ACCOUNT}"
               container_name       = "tfstate"
               key                  = "dev.terraform.tfstate"
-              resource_group_name  = "${{ secrets.TF_STATE_RESOURCE_GROUP }}"
-              access_key           = "${{ secrets.TF_STATE_ACCESS_KEY }}"
+              resource_group_name  = "${RESOURCE_GROUP}"
+              access_key           = "${ACCESS_KEY}"
             }
           }
           EOF
@@ -133,15 +137,19 @@ jobs:
           terraform_version: ${{ env.TF_VERSION }}
 
       - name: Setup Backend Config
+        env:
+          STORAGE_ACCOUNT: ${{ secrets.TF_STATE_STORAGE_ACCOUNT }}
+          RESOURCE_GROUP: ${{ secrets.TF_STATE_RESOURCE_GROUP }}
+          ACCESS_KEY: ${{ secrets.TF_STATE_ACCESS_KEY }}
         run: |
           cat > backend.tf <<EOF
           terraform {
             backend "azurerm" {
-              storage_account_name = "${{ secrets.TF_STATE_STORAGE_ACCOUNT }}"
+              storage_account_name = "${STORAGE_ACCOUNT}"
               container_name       = "tfstate"
               key                  = "dev.terraform.tfstate"
-              resource_group_name  = "${{ secrets.TF_STATE_RESOURCE_GROUP }}"
-              access_key           = "${{ secrets.TF_STATE_ACCESS_KEY }}"
+              resource_group_name  = "${RESOURCE_GROUP}"
+              access_key           = "${ACCESS_KEY}"
             }
           }
           EOF
@@ -181,15 +189,19 @@ jobs:
           terraform_version: ${{ env.TF_VERSION }}
 
       - name: Setup Backend Config
+        env:
+          STORAGE_ACCOUNT: ${{ secrets.TF_STATE_STORAGE_ACCOUNT }}
+          RESOURCE_GROUP: ${{ secrets.TF_STATE_RESOURCE_GROUP }}
+          ACCESS_KEY: ${{ secrets.TF_STATE_ACCESS_KEY }}
         run: |
           cat > backend.tf <<EOF
           terraform {
             backend "azurerm" {
-              storage_account_name = "${{ secrets.TF_STATE_STORAGE_ACCOUNT }}"
+              storage_account_name = "${STORAGE_ACCOUNT}"
               container_name       = "tfstate"
               key                  = "prod.terraform.tfstate"
-              resource_group_name  = "${{ secrets.TF_STATE_RESOURCE_GROUP }}"
-              access_key           = "${{ secrets.TF_STATE_ACCESS_KEY }}"
+              resource_group_name  = "${RESOURCE_GROUP}"
+              access_key           = "${ACCESS_KEY}"
             }
           }
           EOF
