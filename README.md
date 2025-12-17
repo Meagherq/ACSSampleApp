@@ -10,7 +10,13 @@ A PowerShell script for sending emails and SMS messages using Azure Communicatio
 - **SMS Sending** via ACS
 - **Interactive Configuration** with secure credential storage
 - **Persistent Settings** saved to `acs-config.json`
+## Infrastructure Deployment
 
+This repository includes Terraform configuration for automated deployment of Azure Communication Services infrastructure. For detailed setup instructions, including GitHub Actions CI/CD pipeline configuration, see the [Terraform README](terraform/README.md).
+
+Quick links:
+- [Infrastructure Setup Guide](terraform/README.md)
+- [GitHub Actions Pipeline Configuration](terraform/README.md#github-actions-cicd-pipeline-setup)
 ## Requirements
 
 - PowerShell 5.1 or later
